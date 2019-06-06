@@ -20,15 +20,15 @@ public class HelloWorldController {
 	
 	@GetMapping(path="/hello-world-bean")
 	public HelloWorldBean helloWorldBean(){
-		throw new RuntimeException("Some shit hit the fan!");
-		//return new HelloWorldBean("Hello Dude", "This is a test comment");
+		//throw new RuntimeException("Some shit hit the fan!");
+		return new HelloWorldBean("Hello Dude");
 	}
 	
 	
 	// Path Parameter
 	@GetMapping(path = "/hello-world/path-variable/{name}")
 	public HelloWorldBean helloWorldPathVariable(@PathVariable String name){
-		return new HelloWorldBean(String.format("Hello World, %s", name), "This is a test comment");
+		return new HelloWorldBean(String.format("Hello World, %s", name));
 	}
 	
 }

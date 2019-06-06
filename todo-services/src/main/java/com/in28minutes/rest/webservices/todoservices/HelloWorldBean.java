@@ -4,7 +4,7 @@ public class HelloWorldBean {
 
 	private String message;
 
-	public HelloWorldBean(String message, String comment) {
+	public HelloWorldBean(String message) {
 		super();
 		this.message = message;
 	}
