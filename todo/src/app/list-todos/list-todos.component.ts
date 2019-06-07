@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
+import { Router } from '@angular/router';
 
 export class Todo {
   constructor(
@@ -23,15 +24,9 @@ export class ListTodosComponent implements OnInit {
   todos: Todo[]
   message: string
 
-  // todos = [
-  //   new Todo(1, 'Learn to Dance', false, new Date()),
-  //   new Todo(2, 'Become Expert in Angular', false, new Date()),
-  //   new Todo(3, 'Visit China', false, new Date())
-  // ];
-
-
-
-  constructor(private todoService: TodoDataService) { }
+  constructor(private todoService: TodoDataService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.refreshTodos();
@@ -60,10 +55,11 @@ export class ListTodosComponent implements OnInit {
         console.log("Error: ", error);
       }
     );
-
-
   }
 
-
+  updateTodo(id){
+    console.log(`update ${id}`);
+    this.router.navigate(['todos', id]);
+  }
 
 }

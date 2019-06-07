@@ -18,7 +18,20 @@ export class TodoDataService {
     return this.httpClient.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
   }
 
+
+  retrieveTodo(username, id) {
+    console.log("Calling retrieveTodo", username);
+    return this.httpClient.get<Todo>(`http://localhost:8080/users/${username}/todos/${id}`);
+  }
+
   deleteTodo(username, id){
     return this.httpClient.delete(`http://localhost:8080/users/${username}/todos/${id}`);
   }
+
+  // update
+  updateTodo(username, id, todo) {
+    console.log("Calling updateTodo", username);
+    return this.httpClient.put<Todo>(`http://localhost:8080/users/${username}/todos/${id}`, todo);
+  }
+
 }
