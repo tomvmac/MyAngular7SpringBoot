@@ -36,10 +36,11 @@ export class TodoComponent implements OnInit {
     this.todoService.updateTodo('in28Minutes', this.id, this.todo).subscribe(
       data => {
         console.log(data);
+        // redirect to todos page
+        this.router.navigate(['todos']);
       }
     );
-    // redirect to todos page
-    this.router.navigate(['todos']);
+
   }
 
 }
