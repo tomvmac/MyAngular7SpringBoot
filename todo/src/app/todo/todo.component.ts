@@ -21,25 +21,40 @@ export class TodoComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     // Default todo to prevent race condition in loading the todo from service
-    this.todo = new Todo(1, '', false, new Date());
+    this.todo = new Todo(this.id, '', false, new Date());
 
-    this.todoService.retrieveTodo('in28Minutes', this.id).subscribe(
-      response => {
-        console.log(response);
-        this.todo = response;
-      }
-    )
+    if (this.todo.id != -1){
+      this.todoService.retrieveTodo('in28Minutes', this.id).subscribe(
+        response => {
+          console.log(response);
+          this.todo = response;
+        }
+      );
+    }
 
   }
 
   saveTodo(){
-    this.todoService.updateTodo('in28Minutes', this.id, this.todo).subscribe(
-      data => {
-        console.log(data);
-        // redirect to todos page
-        this.router.navigate(['todos']);
-      }
-    );
+    if (this.todo.id != -1){
+      // update
+      this.todoService.updateTodo('in28Minutes', this.id, this.todo).subscribe(
+        data => {
+          console.log(data);
+          // redirect to todos page
+          this.router.navigate(['todos']);
+        }
+      );
+    } else {
+      // add
+      this.todoService.addTodo('in28Minutes', this.todo).subscribe(
+        data => {
+          console.log(data);
+          // redirect to todos page
+          this.router.navigate(['todos']);
+        }
+      );
+
+    }
 
   }
 
