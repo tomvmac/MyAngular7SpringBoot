@@ -43,8 +43,8 @@ export class WelcomeComponent implements OnInit {
 
   handleErrorResponse(error){
     console.log(error);
-    console.log(error.error);
-    this.message = error.error.message;
+    //console.log(error.error);
+    //this.message = error.error.message;
   }
 
 }
