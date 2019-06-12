@@ -1,11 +1,9 @@
-package com.in28minutes.rest.webservices.todoservices.helloworld;
+package com.in28minutes.rest.basic.auth;
 
-public class HelloWorldBean {
-
+public class AuthenticationBean {
 	private String message;
 
-	public HelloWorldBean(String message) {
-		super();
+	public AuthenticationBean(String message) {
 		this.message = message;
 	}
 
@@ -19,15 +17,6 @@ public class HelloWorldBean {
 
 	@Override
 	public String toString() {
-		return "HelloWorldBean [message=" + message + "]";
+		return String.format("HelloWorldBean [message=%s]", message);
 	}
-	
-	
-
-
-
-
-	
-	
-	
 }

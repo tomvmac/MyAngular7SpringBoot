@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.todoservices.todo;
+package com.in28minutes.rest.webservices.restfulwebservices.todo;
 
 import java.net.URI;
 import java.util.List;
