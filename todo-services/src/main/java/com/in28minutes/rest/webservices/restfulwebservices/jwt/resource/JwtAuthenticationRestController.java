@@ -25,7 +25,7 @@ import com.in28minutes.rest.webservices.restfulwebservices.jwt.JwtTokenUtil;
 import com.in28minutes.rest.webservices.restfulwebservices.jwt.JwtUserDetails;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class JwtAuthenticationRestController {
 
 	@Value("${jwt.http.request.header}")
