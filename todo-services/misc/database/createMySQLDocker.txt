@@ -1,0 +1,44 @@
+Run a MySQL docker image:
+https://www.techrepublic.com/article/how-to-deploy-and-use-a-mysql-docker-container/
+
+https://codereviewvideos.com/course/docker-tutorial-for-beginners/video/docker-mysql-tutorial
+
+https://stackoverflow.com/questions/25920029/setting-up-mysql-and-importing-dump-within-dockerfile/25920875
+
+
+Docker commands:
+
+Run docker container:
+>docker run --name mysql101 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql/mysql-server:latest
+Run IT terminal of MysQL:
+docker exec -it mysql101 bash
+
+# mysql -uroot -ppassword
+mysql> create database tododb;
+
+// Create new user
+use tododb;
+mysql> create user 'myuser'@'%' identified by 'mypass'; 
+// Grant permissions to user
+mysql> grant alter,create,delete,drop,index,insert,select,update,trigger,alter
+ routine,create routine, execute, create temporary tables 
+on tododb.* to 'myuser';
+
+// Connect MySQLWorkbench to Docker instance of Mysql
+Use docker ip address and port
+Log in as myuser
+
+// Grant permissions to user
+https://lefred.be/content/how-to-grant-privileges-to-users-in-mysql-8-0/
+https://kyup.com/tutorials/create-new-user-grant-permissions-mysql/
+
+
+
+MySQL Workbench:
+https://dev.mysql.com/downloads/workbench/
+
+
+Step 2 - Connect Spring Boot to MySQL docker instance
+
+https://medium.com/@salisuwy/building-a-spring-boot-rest-api-part-iii-integrating-mysql-database-and-jpa-81391404046a
+
