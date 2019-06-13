@@ -16,28 +16,28 @@ export class TodoDataService {
 
   retrieveAllTodos(username) {
     console.log("Calling retrieveAllTodos", username);
-    return this.httpClient.get<Todo[]>(`${API_URL}/users/${username}/todos`);
+    return this.httpClient.get<Todo[]>(`${API_URL}/jpa/users/${username}/todos`);
   }
 
 
   retrieveTodo(username, id) {
     console.log("Calling retrieveTodo", username);
-    return this.httpClient.get<Todo>(`${API_URL}/users/${username}/todos/${id}`);
+    return this.httpClient.get<Todo>(`${API_URL}/jpa/users/${username}/todos/${id}`);
   }
 
   deleteTodo(username, id){
-    return this.httpClient.delete(`${API_URL}/users/${username}/todos/${id}`);
+    return this.httpClient.delete(`${API_URL}/jpa/users/${username}/todos/${id}`);
   }
 
   // update
   updateTodo(username, id, todo) {
     console.log("Calling updateTodo", username);
-    return this.httpClient.put<Todo>(`${API_URL}/users/${username}/todos/${id}`, todo);
+    return this.httpClient.put<Todo>(`${API_URL}/jpa/users/${username}/todos/${id}`, todo);
   }
 
   // add
   addTodo(username, todo) {
     console.log("Calling addTodo", username);
-    return this.httpClient.post<Todo>(`${API_URL}/users/${username}/todos`, todo);
+    return this.httpClient.post<Todo>(`${API_URL}/jpa/users/${username}/todos`, todo);
   }
 }
